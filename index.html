@@ -1437,5 +1437,20 @@
             var observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in-up');
+
+                    entry.target.classList.add('fade-in-up');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+ 
+            document.querySelectorAll('.service-card, .feature-card, .area-card, .project-card').forEach(function(el) {
+                observer.observe(el);
+            });
+ 
+        }); // closes DOMContentLoaded
+    </script>
+</body>
+</html>
+ 
                   
